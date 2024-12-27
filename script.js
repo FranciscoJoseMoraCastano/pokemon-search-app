@@ -1,5 +1,6 @@
 const pokemonID = document.getElementById('pokemon-id');
 const pokemonName = document.getElementById('pokemon-name');
+const generationInfo = document.getElementById('generation-info'); // Nuevo elemento para la generación
 const spriteContainer = document.getElementById('sprite-container');
 const types = document.getElementById('types');
 const height = document.getElementById('height');
@@ -17,6 +18,31 @@ const separator = document.getElementById('separator');
 // Ocultar el separador al inicio
 separator.classList.add('hidden');
 
+const getGeneration = (id) => {
+  switch (true) {
+    case (id >= 1 && id <= 151):
+      return "1st Generation - Kanto";
+    case (id >= 152 && id <= 251):
+      return "2nd Generation - Johto";
+    case (id >= 252 && id <= 386):
+      return "3rd Generation - Hoenn";
+    case (id >= 387 && id <= 493):
+      return "4th Generation - Sinnoh";
+    case (id >= 494 && id <= 649):
+      return "5th Generation - Unova";
+    case (id >= 650 && id <= 721):
+      return "6th Generation - Kalos";
+    case (id >= 722 && id <= 809):
+      return "7th Generation - Alola";
+    case (id >= 810 && id <= 898):
+      return "8th Generation - Galar";
+    case (id >= 899 && id <= 1008):
+      return "9th Generation - Paldea";
+    default:
+      return "Unknown Generation";
+  }
+};
+
 const getPokemon = async () => {
   try {
     const pokemonNameOrId = searchInput.value.toLowerCase();
@@ -32,6 +58,7 @@ const getPokemon = async () => {
     // Set Pokémon info
     pokemonName.textContent = `${data.name.toUpperCase()}`;
     pokemonID.textContent = `#${data.id}`;
+    generationInfo.textContent = getGeneration(data.id); // Mostrar generación
     weight.textContent = `Weight: ${convertedWeight.toFixed(1)} kg`;
     height.textContent = `Height: ${convertedHeight} cm`;
 
@@ -60,7 +87,6 @@ const getPokemon = async () => {
     console.log(`Pokémon not found: ${err}`);
   }
 };
-
 
 const resetDisplay = () => {
   const sprite = document.getElementById('sprite');

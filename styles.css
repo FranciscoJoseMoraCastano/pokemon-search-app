@@ -48,7 +48,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 90%;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -63,7 +63,7 @@ h1 {
 /* Container Styling */
 .container {
   width: 100%;
-  max-width: 400px;
+  max-width: fit-content;
   background-color: #ffffff3b;
   border-radius: 16px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -127,6 +127,14 @@ h1 {
   font-weight: bold;
   margin-bottom: 10px;
   color: #2b2d42;
+}
+
+#generation-info {
+  color: #828383; /* Ligeramente más oscuro que el peso y la altura */
+  font-size: 1rem;
+  margin-left: 10px;
+  font-weight: normal;
+  text-align: end;
 }
 
 .size {
