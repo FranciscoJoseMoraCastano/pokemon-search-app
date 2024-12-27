@@ -1,5 +1,4 @@
-/* CSS reset */
-
+/* CSS Reset */
 *,
 *::before,
 *::after {
@@ -11,23 +10,40 @@
   padding: 0;
 }
 
+html, body {
+  width: 100%;
+  overflow: auto;
+}
+
 body {
+  min-height: 100vh;
   line-height: 1.5;
   font-family: 'Inter', sans-serif;
   background-color: #f4f4f9;
   color: #2b2d42;
-}
-
-/* General Styling */
-
-body {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Dynamic Viewport Fix for Mobile Browsers */
+:root {
+  --vh: 100%;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --vh: 100dvh;
+  }
+}
+
+body {
+  min-height: var(--vh);
+}
+
+/* General Styling */
 main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +61,6 @@ h1 {
 }
 
 /* Container Styling */
-
 .container {
   width: 100%;
   max-width: 400px;
@@ -102,7 +117,6 @@ h1 {
 }
 
 /* Output Section */
-
 .output {
   padding: 20px;
 }
@@ -152,7 +166,6 @@ h1 {
 }
 
 /* Pokémon Type Colors */
-
 .normal { background-color: #a8a77a; }
 .fire { background-color: #ee8130; }
 .water { background-color: #6390f0; }
@@ -173,7 +186,6 @@ h1 {
 .fairy { background-color: #d685ad; }
 
 /* Table Styling */
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -207,7 +219,6 @@ tr:nth-child(odd) {
 }
 
 /* Responsiveness */
-
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 2.5rem;
