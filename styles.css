@@ -54,7 +54,7 @@ main {
 
 h1 {
   color: #2b2d42;
-  font-size: 2rem;
+  font-size: 1.5rem !important;
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: bold;
@@ -125,16 +125,14 @@ h1 {
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
   color: #2b2d42;
 }
 
-#generation-info {
+.generation-info {
   color: #828383; /* Ligeramente más oscuro que el peso y la altura */
-  font-size: 1rem;
-  margin-left: 10px;
-  font-weight: normal;
-  text-align: end;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 .size {
@@ -229,7 +227,7 @@ tr:nth-child(odd) {
 /* Responsiveness */
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .container {
