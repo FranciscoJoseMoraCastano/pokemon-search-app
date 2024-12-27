@@ -25,11 +25,15 @@ const getPokemon = async () => {
     );
     const data = await response.json();
 
+    // Convertir altura y peso a cm y kg
+    const convertedHeight = data.height * 10; // Decímetros a centímetros
+    const convertedWeight = data.weight / 10; // Hectogramos a kilogramos
+
     // Set Pokémon info
     pokemonName.textContent = `${data.name.toUpperCase()}`;
     pokemonID.textContent = `#${data.id}`;
-    weight.textContent = `Weight: ${data.weight}`;
-    height.textContent = `Height: ${data.height}`;
+    weight.textContent = `Weight: ${convertedWeight.toFixed(1)} kg`;
+    height.textContent = `Height: ${convertedHeight} cm`;
 
     // Mostrar el separador si hay datos de peso y altura
     separator.classList.remove('hidden');
@@ -56,6 +60,7 @@ const getPokemon = async () => {
     console.log(`Pokémon not found: ${err}`);
   }
 };
+
 
 const resetDisplay = () => {
   const sprite = document.getElementById('sprite');
